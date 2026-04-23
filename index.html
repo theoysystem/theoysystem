@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The OY System™ — Equipment Governance for Aged Care | Meseret Teferra, PhD</title>
+<meta name="description" content="The OY System™ is an equipment governance layer for aged care facilities. Audit-ready in 14 days. Designed by Meseret Teferra, PhD, Biomedical Engineer, Brisbane SEQ.">
+<meta name="keywords" content="aged care equipment governance, audit readiness aged care, equipment compliance aged care Australia, OY System, biomedical engineer Brisbane, aged care quality standards">
+<meta property="og:title" content="The OY System™ — Equipment Governance for Aged Care">
+<meta property="og:description" content="Audit-ready equipment governance for aged care facilities. 14 days. No new daily tasks for your team.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#08101e; --s1:#0d1929; --s2:#112035; --s3:#162840;
+  --b1:#1a2d45; --b2:#243d5a; --b3:#2f5070;
+  --acc:#00e5b8; --acc2:#00c49f; --gold:#f59e0b; --red:#f43f5e; --blue:#38bdf8;
+  --txt:#ddeeff; --txt2:#7a9ab8; --muted:#3a5570;
+  --mono:"JetBrains Mono",monospace;
+  --sans:"Instrument Sans",sans-serif;
+  --disp:"Syne",sans-serif;
+  --max:1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.7;overflow-x:hidden;}
+
+/* NOISE */
+body::before{
+  content:"";position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.5;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(8,16,30,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:58px;
+}
+.nav-logo{font-family:var(--disp);font-size:17px;font-weight:800;color:var(--acc);display:flex;align-items:center;gap:8px;text-decoration:none;}
+.logo-pulse{width:8px;height:8px;border-radius:50%;background:var(--acc);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--txt2);text-decoration:none;transition:color .15s;}
+.nav-links a:hover{color:var(--acc);}
+.nav-cta{background:var(--acc);color:#000;padding:8px 18px;border-radius:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .15s;}
+.nav-cta:hover{background:var(--acc2);transform:translateY(-1px);}
+@media(max-width:700px){.nav-links{display:none;}.nav-cta{display:none;}}
+
+/* SECTIONS */
+section{position:relative;z-index:1;}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px;}
+@media(max-width:600px){.container{padding:0 20px;}}
+
+/* ── HERO ───────────────────────────────────────────────────────── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:100px 0 80px;
+  background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,229,184,.06) 0%, transparent 70%);
+}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px;}}
+.hero-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.hero-eyebrow::before{content:"";display:inline-block;width:24px;height:1px;background:var(--acc);}
+.hero-title{font-family:var(--disp);font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;margin-bottom:22px;color:#fff;}
+.hero-title span{color:var(--acc);}
+.hero-sub{font-size:16px;color:var(--txt2);line-height:1.8;margin-bottom:36px;max-width:480px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--acc);color:#000;padding:14px 28px;border-radius:7px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .15s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,229,184,.25);}
+.btn-secondary{background:transparent;color:var(--acc);border:1px solid rgba(0,229,184,.4);padding:14px 28px;border-radius:7px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .15s;}
+.btn-secondary:hover{background:rgba(0,229,184,.08);border-color:var(--acc);}
+.hero-card{background:var(--s1);border:1px solid var(--b2);border-radius:14px;padding:28px;position:relative;overflow:hidden;}
+.hero-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--blue));}
+.hero-card-label{font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:20px;}
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.metric{background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:16px;}
+.metric-val{font-family:var(--disp);font-size:28px;font-weight:800;color:var(--acc);line-height:1;}
+.metric-label{font-size:10px;color:var(--txt2);margin-top:4px;letter-spacing:1px;text-transform:uppercase;font-family:var(--mono);}
+.promise-box{background:rgba(0,229,184,.06);border:1px solid rgba(0,229,184,.2);border-radius:8px;padding:14px 16px;font-size:12px;color:var(--txt2);line-height:1.7;}
+.promise-box strong{color:var(--acc);}
+
+/* ── PROBLEM ───────────────────────────────────────────────────── */
+#problem{padding:100px 0;background:var(--s1);}
+.section-tag{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:14px;}
+.section-title{font-family:var(--disp);font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.1;margin-bottom:18px;}
+.section-sub{font-size:15px;color:var(--txt2);line-height:1.8;max-width:620px;margin-bottom:48px;}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:800px){.problem-grid{grid-template-columns:1fr;}}
+.problem-card{background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:22px;position:relative;overflow:hidden;transition:border-color .2s;}
+.problem-card:hover{border-color:var(--b3);}
+.problem-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);opacity:.6;}
+.problem-icon{font-size:22px;margin-bottom:14px;}
+.problem-title{font-family:var(--disp);font-size:15px;font-weight:700;margin-bottom:8px;}
+.problem-body{font-size:13px;color:var(--txt2);line-height:1.7;}
+.audit-question{
+  margin-top:48px;
+  background:var(--s2);border:1px solid rgba(0,229,184,.25);
+  border-radius:12px;padding:32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.audit-question::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(0,229,184,.05),transparent);}
+.audit-q-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.audit-q-text{font-family:var(--disp);font-size:clamp(18px,3vw,26px);font-weight:700;color:#fff;line-height:1.4;position:relative;}
+.audit-q-text em{color:var(--acc);font-style:normal;}
+
+/* ── SOLUTION ──────────────────────────────────────────────────── */
+#solution{padding:100px 0;}
+.solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+@media(max-width:900px){.solution-grid{grid-template-columns:1fr;}}
+.layer-diagram{background:var(--s1);border:1px solid var(--b1);border-radius:12px;overflow:hidden;}
+.layer-header{background:var(--s2);padding:14px 20px;border-bottom:1px solid var(--b1);font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--txt2);}
+.layer{padding:14px 20px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:14px;transition:background .15s;}
+.layer:last-child{border-bottom:none;}
+.layer.highlight{background:rgba(0,229,184,.06);}
+.layer-num{font-family:var(--mono);font-size:9px;color:var(--muted);width:20px;flex-shrink:0;}
+.layer-name{font-size:13px;font-weight:600;flex:1;}
+.layer.highlight .layer-name{color:var(--acc);}
+.layer-tag{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:3px;}
+.tag-oy{background:rgba(0,229,184,.15);color:var(--acc);border:1px solid rgba(0,229,184,.3);}
+.tag-existing{background:rgba(100,116,139,.12);color:#94a3b8;border:1px solid rgba(100,116,139,.25);}
+.existing-tools{margin-top:12px;padding:12px 20px;background:rgba(0,229,184,.04);border-top:1px solid rgba(0,229,184,.15);}
+.existing-label{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.tool-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.tool-chip{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:3px;background:var(--s3);border:1px solid var(--b2);color:var(--txt2);}
+.solution-points{display:flex;flex-direction:column;gap:20px;}
+.sol-point{display:flex;align-items:flex-start;gap:14px;}
+.sol-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,229,184,.1);border:1px solid rgba(0,229,184,.25);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.sol-title{font-weight:600;font-size:14px;margin-bottom:4px;}
+.sol-body{font-size:13px;color:var(--txt2);line-height:1.7;}
+
+/* ── DELIVERABLES ──────────────────────────────────────────────── */
+#deliverables{padding:100px 0;background:var(--s1);}
+.del-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px;}
+@media(max-width:700px){.del-grid{grid-template-columns:1fr;}}
+.del-card{background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:24px;transition:border-color .2s,transform .15s;}
+.del-card:hover{border-color:var(--b3);transform:translateY(-2px);}
+.del-num{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--acc);margin-bottom:10px;}
+.del-title{font-family:var(--disp);font-size:16px;font-weight:700;margin-bottom:8px;}
+.del-body{font-size:13px;color:var(--txt2);line-height:1.7;}
+.timeline-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;background:var(--s2);border:1px solid var(--b1);border-radius:10px;overflow:hidden;}
+@media(max-width:700px){.timeline-row{grid-template-columns:1fr 1fr;}}
+.tl-step{padding:20px;border-right:1px solid var(--b1);position:relative;}
+.tl-step:last-child{border-right:none;}
+.tl-day{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--acc);margin-bottom:6px;}
+.tl-title{font-size:13px;font-weight:600;margin-bottom:4px;}
+.tl-body{font-size:11px;color:var(--txt2);line-height:1.6;}
+
+/* ── CHECKLIST CTA ─────────────────────────────────────────────── */
+#checklist{padding:80px 0;}
+.checklist-box{
+  background:linear-gradient(135deg,var(--s1) 0%,rgba(0,229,184,.08) 100%);
+  border:1px solid rgba(0,229,184,.3);border-radius:16px;
+  padding:48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
+}
+@media(max-width:800px){.checklist-box{grid-template-columns:1fr;gap:28px;}}
+.checklist-title{font-family:var(--disp);font-size:clamp(22px,3vw,32px);font-weight:800;margin-bottom:12px;}
+.checklist-body{font-size:14px;color:var(--txt2);line-height:1.8;margin-bottom:24px;}
+.checklist-items{display:flex;flex-direction:column;gap:8px;}
+.ci{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--txt2);}
+.ci::before{content:"✓";color:var(--acc);font-family:var(--mono);font-weight:700;font-size:12px;}
+.checklist-form{display:flex;flex-direction:column;gap:10px;min-width:280px;}
+@media(max-width:800px){.checklist-form{min-width:auto;}}
+.checklist-form input{background:var(--s2);border:1px solid var(--b2);color:var(--txt);padding:12px 14px;border-radius:7px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color .15s;}
+.checklist-form input:focus{border-color:var(--acc);}
+.checklist-form input::placeholder{color:var(--muted);}
+.checklist-form button{background:var(--acc);color:#000;border:none;padding:13px;border-radius:7px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .15s;}
+.checklist-form button:hover{background:var(--acc2);}
+#checklist-msg{font-family:var(--mono);font-size:11px;color:var(--acc);min-height:16px;}
+
+/* ── ABOUT ─────────────────────────────────────────────────────── */
+#about{padding:100px 0;background:var(--s1);}
+.about-grid{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+.about-avatar{width:140px;height:140px;border-radius:12px;background:var(--s2);border:2px solid rgba(0,229,184,.3);display:flex;align-items:center;justify-content:center;font-size:56px;flex-shrink:0;}
+.about-name{font-family:var(--disp);font-size:28px;font-weight:800;margin-bottom:4px;}
+.about-role{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--acc);margin-bottom:20px;}
+.about-bio{font-size:14px;color:var(--txt2);line-height:1.85;margin-bottom:24px;}
+.cred-row{display:flex;flex-wrap:wrap;gap:10px;}
+.cred{font-family:var(--mono);font-size:10px;padding:5px 12px;border-radius:4px;background:var(--s2);border:1px solid var(--b2);color:var(--txt2);}
+.cred.highlight{border-color:rgba(0,229,184,.35);color:var(--acc);}
+.cred-link{text-decoration:none;transition:all .15s;cursor:pointer;}
+.cred-link:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-1px);}
+
+/* ── CONTACT ───────────────────────────────────────────────────── */
+#contact{padding:100px 0;}
+.contact-inner{text-align:center;max-width:600px;margin:0 auto;}
+.contact-title{font-family:var(--disp);font-size:clamp(28px,4vw,42px);font-weight:800;margin-bottom:14px;}
+.contact-sub{font-size:15px;color:var(--txt2);line-height:1.8;margin-bottom:40px;}
+.contact-options{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.contact-card{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:24px 32px;text-align:center;text-decoration:none;transition:all .2s;min-width:180px;}
+.contact-card:hover{border-color:var(--acc);transform:translateY(-3px);background:rgba(0,229,184,.04);}
+.contact-card-icon{font-size:24px;margin-bottom:10px;}
+.contact-card-label{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--acc);margin-bottom:4px;}
+.contact-card-val{font-size:13px;color:var(--txt2);}
+
+/* ── FOOTER ───────────────────────────────────────────────────── */
+footer{background:var(--s1);border-top:1px solid var(--b1);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.footer-logo{font-family:var(--disp);font-size:14px;font-weight:800;color:var(--acc);}
+.footer-txt{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:var(--acc);}
+
+/* SCROLL ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--s2);border:1px solid var(--acc);border-radius:8px;padding:12px 20px;font-family:var(--mono);font-size:11px;color:var(--acc);z-index:999;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;}
+#toast.on{opacity:1;transform:translateY(0);}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo"><span class="logo-pulse"></span>OY System™</a>
+  <div class="nav-links">
+    <a href="#problem">The Problem</a>
+    <a href="#solution">The Solution</a>
+    <a href="#deliverables">Deliverables</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Equipment Governance for Aged Care</div>
+        <h1 class="hero-title">The governance layer your audit evidence is missing.</h1>
+        <p class="hero-sub">The OY System™ sits above your existing tools — Asset Panda, MEX, Zendesk — and makes the evidence they contain coherent, retrievable, and audit-defensible. In 14 days. No new daily tasks for your team.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">⟶ Book a 10-minute call</a>
+          <a href="#checklist" class="btn-secondary">↓ Free audit checklist</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="hero-card-label">Implementation at a glance</div>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-val">14</div>
+              <div class="metric-label">Days to deliver</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">~150</div>
+              <div class="metric-label">Staff mins total</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">$9,500</div>
+              <div class="metric-label">Fixed fee / site</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">0</div>
+              <div class="metric-label">New daily tasks</div>
+            </div>
+          </div>
+          <div class="promise-box">
+            <strong>The promise:</strong> If an auditor walks in today and asks for equipment maintenance evidence — your team can produce it in minutes, not hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">The Problem</div>
+      <h2 class="section-title">The tools exist.<br>The evidence doesn't.</h2>
+      <p class="section-sub">Most aged care facilities already use multiple systems to manage equipment. The problem isn't the absence of tools — it's that those tools don't speak to each other, and no single coherent audit picture exists.</p>
+    </div>
+    <div class="problem-grid fade-up">
+      <div class="problem-card">
+        <div class="problem-icon">🗂️</div>
+        <div class="problem-title">Fragmented records</div>
+        <div class="problem-body">Maintenance evidence sits across vendor emails, spreadsheets, service portals, and paper logs. No single source of truth exists when an auditor asks.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⚠️</div>
+        <div class="problem-title">Inconsistent processes</div>
+        <div class="problem-body">Quarantine decisions, incident responses, and return-to-service approvals vary across shifts and staff. The process lives in people's heads, not in a system.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔍</div>
+        <div class="problem-title">Audit scramble</div>
+        <div class="problem-body">When a regulator arrives, leadership scrambles to reconstruct evidence. Under the new Aged Care Act, intent is no longer enough — you must be able to prove it, right now.</div>
+      </div>
+    </div>
+    <div class="audit-question fade-up">
+      <div class="audit-q-label">The question that surfaces the gap</div>
+      <div class="audit-q-text">"If an auditor walked into your facility today and asked for equipment maintenance records — <em>how quickly could your team provide them?</em>"</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="fade-up">
+        <div class="section-tag">The Solution</div>
+        <h2 class="section-title">A governance layer, not another system.</h2>
+        <p class="section-sub" style="margin-bottom:32px;">The OY System™ doesn't replace Asset Panda, MEX, Zendesk, or any platform you already use. It sits above them — providing the controls, workflows, and evidence index that makes everything those systems contain audit-defensible.</p>
+        <div class="solution-points">
+          <div class="sol-point">
+            <div class="sol-icon">🔗</div>
+            <div>
+              <div class="sol-title">Works with what you have</div>
+              <div class="sol-body">No rip-and-replace. We integrate with your existing asset register, maintenance platform, and ticketing system — whatever combination your facility uses.</div>
+            </div>
+          </div>
+          <div class="sol-point">
+            <div class="sol-icon">📋</div>
+            <div>
+              <div class="sol-title">Designed for non-engineers</div>
+              <div class="sol-body">Every playbook, checklist, and workflow is written so any staff member can follow it confidently — without biomedical knowledge or training beyond 30 minutes.</div>
+            </div>
+          </div>
+          <div class="sol-point">
+            <div class="sol-icon">✦</div>
+            <div>
+              <div class="sol-title">Built for the new Aged Care Act</div>
+              <div class="sol-body">The strengthened Quality Standards require you to prove governance, not just describe it. The OY System™ creates a continuous, audit-ready evidence trail that satisfies this standard.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="layer-diagram">
+          <div class="layer-header">System Architecture — Governance Layer Model</div>
+          <div class="layer highlight">
+            <div class="layer-num">↑</div>
+            <div class="layer-name">OY System™ — Governance &amp; Evidence Layer</div>
+            <div class="layer-tag tag-oy">OY System</div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">3</div>
+            <div class="layer-name">Maintenance Ticketing</div>
+            <div class="layer-tag tag-existing">e.g. Zendesk</div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">2</div>
+            <div class="layer-name">Asset Management</div>
+            <div class="layer-tag tag-existing">e.g. Asset Panda</div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">1</div>
+            <div class="layer-name">Maintenance Scheduling</div>
+            <div class="layer-tag tag-existing">e.g. MEX</div>
+          </div>
+          <div class="existing-tools">
+            <div class="existing-label">Also integrates with</div>
+            <div class="tool-chips">
+              <span class="tool-chip">Spreadsheets</span>
+              <span class="tool-chip">Vendor portals</span>
+              <span class="tool-chip">Paper logs</span>
+              <span class="tool-chip">Email records</span>
+              <span class="tool-chip">Google Drive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">Deliverables</div>
+      <h2 class="section-title">What you receive by Day 14.</h2>
+      <p class="section-sub">Every implementation delivers the same fixed scope — no surprises, no scope creep, no ongoing licence fees to get started.</p>
+    </div>
+    <div class="del-grid fade-up">
+      <div class="del-card">
+        <div class="del-num">01 — Governance &amp; Control</div>
+        <div class="del-title">Equipment Criticality Matrix</div>
+        <div class="del-body">A/B/C risk classification of your equipment. Controls and maintenance frequencies scaled by risk level. Quarantine decision tree and printable tags. Return-to-service checklist and sign-off template.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-num">02 — Staff Playbooks</div>
+        <div class="del-title">10–15 One-Page Device Guides</div>
+        <div class="del-body">60-second pre-use checks. "What to do if…" steps for common failure modes. Clear triggers for removing equipment from service. Escalation path and required documentation fields.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-num">03 — Incident System</div>
+        <div class="del-title">Incident-to-Closure Workflow</div>
+        <div class="del-body">60-second equipment incident form and triage pathway. Closure record template with evidence requirements. Simple trend log to identify repeat failures before they escalate.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-num">04 — Audit Pack</div>
+        <div class="del-title">Master Audit Index</div>
+        <div class="del-body">Evidence folder structure ready for immediate regulator access. Training and competency sign-off templates. Governance calendar with 15-minute monthly cadence. The OY Score™ — your governance readiness number.</div>
+      </div>
+    </div>
+    <div class="timeline-row fade-up">
+      <div class="tl-step">
+        <div class="tl-day">Days 1–3</div>
+        <div class="tl-title">Discovery</div>
+        <div class="tl-body">Manager interview. Equipment walkthrough. Current state assessment.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-day">Days 4–7</div>
+        <div class="tl-title">Build</div>
+        <div class="tl-body">Criticality matrix. Playbooks. Incident workflow. Evidence structure.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-day">Days 8–11</div>
+        <div class="tl-title">Validate</div>
+        <div class="tl-body">Draft review with manager. Staff walkthrough. Sign-off on playbooks.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-day">Days 12–14</div>
+        <div class="tl-title">Deliver</div>
+        <div class="tl-body">Audit Index finalised. Governance package handed over. OY Score™ issued.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST CTA -->
+<section id="checklist">
+  <div class="container">
+    <div class="checklist-box fade-up">
+      <div>
+        <div class="section-tag">Free Resource</div>
+        <div class="checklist-title">Equipment Audit Readiness Checklist</div>
+        <div class="checklist-body">A one-page practical reference showing exactly what records an aged care regulator looks for — and how to organise them. Free, no strings attached, yours to keep and use however you like.</div>
+        <div class="checklist-items">
+          <div class="ci">What auditors look for in equipment records</div>
+          <div class="ci">The 5 most common evidence gaps</div>
+          <div class="ci">A simple self-assessment you can run in 15 minutes</div>
+          <div class="ci">Aligned to the new Aged Care Quality Standards</div>
+        </div>
+      </div>
+      <div class="checklist-form">
+        <input type="text" id="cl-name" placeholder="Your name">
+        <input type="email" id="cl-email" placeholder="Your email address">
+        <button onclick="submitChecklist()">↓ Send me the checklist</button>
+        <div id="checklist-msg"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid fade-up">
+      <div class="about-avatar">👩🏾‍🔬</div>
+      <div>
+        <div class="about-name">Meseret N. Teferra</div>
+        <div class="about-role">PhD · Biomedical Engineer · Brisbane, SEQ</div>
+        <p class="about-bio">I built the OY System™ out of direct observation of the governance gaps facing aged care facilities — organisations that carry significant safety obligations but rarely have biomedical expertise in-house. Having spent years repairing, calibrating, and maintaining clinical equipment across healthcare settings, I understand the difference between a system that looks compliant and one that actually is.</p>
+        <p class="about-bio">The OY System™ is not software, and it is not a consulting framework. It is a governance layer built by someone who has been inside the facilities, seen the gaps, and designed something practical enough for understaffed teams to maintain.</p>
+        <div class="cred-row">
+          <span class="cred highlight">PhD, Biomedical Engineering</span>
+          <span class="cred highlight">Flinders University</span>
+          <span class="cred">Clinical Equipment Specialist</span>
+          <span class="cred">Brisbane, SEQ</span>
+          <a class="cred cred-link" href="https://scholar.google.com.au/citations?user=lkggh9wAAAAJ&hl=en" target="_blank" rel="noopener">&#x2197; Google Scholar</a>
+          <a class="cred cred-link" href="https://www.researchgate.net/profile/Meseret-Teferra" target="_blank" rel="noopener">&#x2197; ResearchGate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner fade-up visible">
+      <div class="section-tag">Get Started</div>
+      <div class="contact-title">One 10-minute call.<br>No obligation.</div>
+      <p class="contact-sub">If you're not sure whether the OY System™ is relevant for your facility, the fastest way to find out is a brief call. I'll ask you two questions. You'll know within 10 minutes whether this is worth pursuing.</p>
+      <div class="contact-options visible">
+        <a href="https://www.linkedin.com/in/meseret-n-teferra-31246218" target="_blank" class="contact-card">
+          <div class="contact-card-icon">💼</div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-val">Connect directly</div>
+        </a>
+        <a href="mailto:thoysystem@gmail.com" class="contact-card">
+          <div class="contact-card-icon">✉️</div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-val">thoysystem@gmail.com</div>
+        </a>
+        <a href="#checklist" class="contact-card">
+          <div class="contact-card-icon">📋</div>
+          <div class="contact-card-label">Free resource</div>
+          <div class="contact-card-val">Audit checklist</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">OY System™</div>
+  <div class="footer-txt">© 2026 Meseret N. Teferra · The OY System™ (Operational Yield) · Brisbane, SEQ, Australia</div>
+  <div class="footer-links">
+    <a href="#problem">Problem</a>
+    <a href="#solution">Solution</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Checklist form
+function submitChecklist() {
+  var name = document.getElementById('cl-name').value.trim();
+  var email = document.getElementById('cl-email').value.trim();
+  var msg = document.getElementById('checklist-msg');
+  if (!name || !email) { msg.style.color='#f43f5e'; msg.textContent = 'Please enter your name and email.'; return; }
+  if (!email.includes('@')) { msg.style.color='#f43f5e'; msg.textContent = 'Please enter a valid email address.'; return; }
+  msg.style.color = 'var(--acc)';
+  msg.textContent = '✓ Thank you, ' + name + '! The checklist is on its way.';
+  document.getElementById('cl-name').value = '';
+  document.getElementById('cl-email').value = '';
+  showToast('Checklist request received — check your inbox shortly.');
+}
+
+function showToast(m) {
+  var t = document.getElementById('toast');
+  t.textContent = m; t.className = 'on';
+  setTimeout(() => t.className = '', 3000);
+}
+
+// Smooth active nav
+window.addEventListener('scroll', () => {
+  var nav = document.querySelector('nav');
+  nav.style.borderBottomColor = window.scrollY > 20 ? 'rgba(0,229,184,.15)' : 'var(--b1)';
+});
+</script>
+</body>
+</html>
