@@ -206,6 +206,80 @@ footer{background:var(--s1);border-top:1px solid var(--b1);padding:28px 32px;dis
 .footer-links a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;transition:color .15s;}
 .footer-links a:hover{color:var(--acc);}
 
+/* ── HOW IT WORKS ──────────────────────────────────────────── */
+#how-it-works{padding:100px 0;background:var(--s1);}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative;}
+@media(max-width:800px){.steps-grid{grid-template-columns:1fr;}}
+.steps-grid::before{content:"";position:absolute;top:36px;left:calc(16.67% + 36px);right:calc(16.67% + 36px);height:1px;background:linear-gradient(90deg,var(--acc),var(--blue));opacity:.4;z-index:0;}
+@media(max-width:800px){.steps-grid::before{display:none;}}
+.step-card{background:var(--s2);border:1px solid var(--b1);border-radius:12px;padding:32px 28px;position:relative;z-index:1;transition:border-color .2s;}
+.step-card:hover{border-color:var(--b3);}
+.step-card:not(:last-child){margin-right:16px;}
+@media(max-width:800px){.step-card{margin-right:0;margin-bottom:16px;}}
+.step-num{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:16px;}
+.step-icon{width:48px;height:48px;border-radius:10px;background:rgba(0,229,184,.1);border:1px solid rgba(0,229,184,.25);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;}
+.step-title{font-family:var(--disp);font-size:18px;font-weight:700;margin-bottom:10px;}
+.step-body{font-size:13px;color:var(--txt2);line-height:1.8;}
+.step-duration{margin-top:16px;font-family:var(--mono);font-size:10px;color:var(--acc);letter-spacing:1px;padding:4px 10px;border-radius:4px;background:rgba(0,229,184,.08);border:1px solid rgba(0,229,184,.2);display:inline-block;}
+
+/* ── BEFORE / AFTER ────────────────────────────────────────── */
+#before-after{padding:100px 0;}
+.ba-table{background:var(--s1);border:1px solid var(--b1);border-radius:14px;overflow:hidden;margin-top:48px;}
+.ba-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--s2);border-bottom:1px solid var(--b1);}
+.ba-col-head{padding:16px 20px;font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+.ba-col-head.situation{color:var(--txt2);}
+.ba-col-head.before{color:var(--red);}
+.ba-col-head.after{color:var(--acc);}
+.ba-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--b1);transition:background .15s;}
+.ba-row:last-child{border-bottom:none;}
+.ba-row:hover{background:rgba(255,255,255,.02);}
+.ba-cell{padding:16px 20px;font-size:13px;line-height:1.6;border-right:1px solid var(--b1);}
+.ba-cell:last-child{border-right:none;}
+.ba-cell.situation{color:var(--txt);font-weight:500;}
+.ba-cell.before{color:#94a3b8;}
+.ba-cell.after{color:var(--acc);}
+@media(max-width:700px){.ba-header,.ba-row{grid-template-columns:1fr;}.ba-col-head,.ba-cell{border-right:none;border-bottom:1px solid var(--b1);}.ba-col-head:last-child,.ba-cell:last-child{border-bottom:none;}}
+
+/* ── COST FRAMING ──────────────────────────────────────────── */
+#cost-framing{padding:100px 0;background:var(--s1);}
+.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
+@media(max-width:800px){.cost-grid{grid-template-columns:1fr;}}
+.cost-card{border-radius:12px;padding:32px;border:1px solid var(--b1);position:relative;overflow:hidden;}
+.cost-card.cost-risk{background:rgba(244,63,94,.05);border-color:rgba(244,63,94,.25);}
+.cost-card.cost-solution{background:rgba(0,229,184,.05);border-color:rgba(0,229,184,.3);}
+.cost-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;}
+.cost-card.cost-risk::before{background:var(--red);}
+.cost-card.cost-solution::before{background:linear-gradient(90deg,var(--acc),var(--blue));}
+.cost-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
+.cost-card.cost-risk .cost-label{color:var(--red);}
+.cost-card.cost-solution .cost-label{color:var(--acc);}
+.cost-title{font-family:var(--disp);font-size:20px;font-weight:800;margin-bottom:20px;}
+.cost-items{display:flex;flex-direction:column;gap:10px;}
+.cost-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--txt2);line-height:1.6;}
+.cost-item-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.cost-conclusion{margin-top:24px;font-family:var(--mono);font-size:12px;padding:14px 16px;border-radius:8px;line-height:1.6;}
+.cost-card.cost-risk .cost-conclusion{background:rgba(244,63,94,.08);color:#f87171;border:1px solid rgba(244,63,94,.2);}
+.cost-card.cost-solution .cost-conclusion{background:rgba(0,229,184,.08);color:var(--acc);border:1px solid rgba(0,229,184,.2);}
+.urgency-strip{margin-top:32px;background:var(--s2);border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:24px 28px;display:flex;align-items:center;gap:20px;}
+@media(max-width:700px){.urgency-strip{flex-direction:column;align-items:flex-start;}}
+.urgency-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
+.urgency-text{font-size:14px;color:var(--txt2);line-height:1.6;}
+.urgency-text strong{color:var(--gold);}
+
+/* ── FAQ ───────────────────────────────────────────────────── */
+#faq{padding:100px 0;}
+.faq-list{margin-top:48px;display:flex;flex-direction:column;gap:2px;}
+.faq-item{background:var(--s1);border:1px solid var(--b1);border-radius:10px;overflow:hidden;transition:border-color .2s;}
+.faq-item.open{border-color:rgba(0,229,184,.35);}
+.faq-question{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px;}
+.faq-q-text{font-size:15px;font-weight:600;line-height:1.5;}
+.faq-chevron{font-family:var(--mono);font-size:14px;color:var(--acc);flex-shrink:0;transition:transform .25s;}
+.faq-item.open .faq-chevron{transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-answer{max-height:300px;}
+.faq-answer-inner{padding:0 24px 20px;font-size:14px;color:var(--txt2);line-height:1.85;border-top:1px solid var(--b1);}
+.faq-answer-inner p{padding-top:16px;}
+
 /* SCROLL ANIMATIONS */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .fade-up.visible{opacity:1;transform:none;}
@@ -227,7 +301,9 @@ footer{background:var(--s1);border-top:1px solid var(--b1);padding:28px 32px;dis
   <div class="nav-links">
     <a href="#problem">The Problem</a>
     <a href="#solution">The Solution</a>
-    <a href="#deliverables">Deliverables</a>
+    <a href="#how-it-works">Process</a>
+    <a href="#faq">FAQ</a>
+    <a href="#faq">FAQ</a>
     <a href="#about">About</a>
     <a href="#contact" class="nav-cta">Book a Call</a>
   </div>
@@ -434,6 +510,125 @@ footer{background:var(--s1);border-top:1px solid var(--b1);padding:28px 32px;dis
   </div>
 </section>
 
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">The Process</div>
+      <h2 class="section-title">What happens after you book the call.</h2>
+      <p class="section-sub">No ambiguity, no discovery-heavy consulting, no scope creep. Every engagement runs the same fixed sequence — and every step is done by me, not delegated.</p>
+    </div>
+    <div class="steps-grid fade-up">
+      <div class="step-card">
+        <div class="step-num">Step 01</div>
+        <div class="step-icon">📞</div>
+        <div class="step-title">Discovery Call</div>
+        <div class="step-body">We spend 10 minutes identifying your facility's specific gap — what your current systems contain, what evidence doesn't exist yet, and whether the OY System is the right fit. No obligation. You'll know within the call.</div>
+        <div class="step-duration">10 minutes · free</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 02</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Site Assessment</div>
+        <div class="step-body">I walk through your equipment register, current maintenance workflows, and incident documentation. I identify every gap between what you have and what a regulator expects to see. You receive a written gap summary.</div>
+        <div class="step-duration">Days 1–3 · included</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 03</div>
+        <div class="step-icon">📦</div>
+        <div class="step-title">Build &amp; Deliver</div>
+        <div class="step-body">I build every deliverable to your facility — criticality matrix, staff playbooks, incident workflow, evidence index. By Day 14, your team has everything in place and an OY Score™ that tells you exactly where you stand.</div>
+        <div class="step-duration">Days 4–14 · full delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="before-after">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">Before &amp; After</div>
+      <h2 class="section-title">What changes in 14 days.</h2>
+      <p class="section-sub">A concrete picture of what your facility looks like before the OY System — and after.</p>
+    </div>
+    <div class="ba-table fade-up">
+      <div class="ba-header">
+        <div class="ba-col-head situation">Situation</div>
+        <div class="ba-col-head before">⚠ Before</div>
+        <div class="ba-col-head after">✓ After</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell situation">Auditor asks for equipment maintenance records</div>
+        <div class="ba-cell before">Staff scramble across emails, spreadsheets, vendor portals and paper logs — often spending hours reconstructing evidence that may be incomplete</div>
+        <div class="ba-cell after">Single evidence index folder. Auditor gets everything within minutes, in the format they expect</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell situation">A piece of equipment fails mid-shift</div>
+        <div class="ba-cell before">Staff unsure whether to remove it or continue using it. Quarantine decision depends on who happens to be on shift</div>
+        <div class="ba-cell after">Printed quarantine decision tree at point-of-care. Every staff member follows the same documented process</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell situation">New staff member arrives</div>
+        <div class="ba-cell before">Equipment knowledge sits in senior staff's heads. Onboarding is inconsistent. Competency is assumed, not verified</div>
+        <div class="ba-cell after">One-page device guides for 10–15 equipment types. 30-minute walkthrough. Signed competency record on file</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell situation">Monthly equipment governance</div>
+        <div class="ba-cell before">Ad hoc — happens when someone notices a problem. No documented cadence. No evidence of oversight for auditors</div>
+        <div class="ba-cell after">15-minute monthly review against governance calendar. Trend log updated. Evidence of ongoing oversight, on file</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell situation">Your readiness position</div>
+        <div class="ba-cell before">Unknown. You believe you're compliant, but you can't quantify it — and neither can an auditor</div>
+        <div class="ba-cell after">OY Score™ — a number from 0 to 100 that reflects your evidence completeness. Tracked over time. Shows improvement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST FRAMING -->
+<section id="cost-framing">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">The Investment</div>
+      <h2 class="section-title">What it costs not to act.</h2>
+      <p class="section-sub">The OY System is a fixed-scope engagement. One fee, no licence, no subscription, no ongoing cost unless you choose it. Here is how it compares to the alternative.</p>
+    </div>
+    <div class="cost-grid fade-up">
+      <div class="cost-card cost-risk">
+        <div class="cost-label">The risk of inaction</div>
+        <div class="cost-title">What a failed audit actually costs</div>
+        <div class="cost-items">
+          <div class="cost-item"><span class="cost-item-icon">⚠️</span><span><strong style="color:var(--txt);">Compliance notices</strong> — requirement to fix identified failures within tight timeframes, with follow-up inspections</span></div>
+          <div class="cost-item"><span class="cost-item-icon">⚠️</span><span><strong style="color:var(--txt);">Increased regulatory scrutiny</strong> — once flagged, future audits are more frequent and more detailed</span></div>
+          <div class="cost-item"><span class="cost-item-icon">⚠️</span><span><strong style="color:var(--txt);">Staff hours reconstructing evidence</strong> — typically 20–40 hours of management time during and after an audit</span></div>
+          <div class="cost-item"><span class="cost-item-icon">⚠️</span><span><strong style="color:var(--txt);">Reputational exposure</strong> — ACQSC outcomes are published. Facilities with compliance failures appear on the public register</span></div>
+          <div class="cost-item"><span class="cost-item-icon">⚠️</span><span><strong style="color:var(--txt);">Consultant fees after the fact</strong> — reactive remediation costs significantly more than proactive implementation</span></div>
+        </div>
+        <div class="cost-conclusion">Most facilities don't discover these gaps until a regulator finds them for you.</div>
+      </div>
+      <div class="cost-card cost-solution">
+        <div class="cost-label">The OY System</div>
+        <div class="cost-title">Fixed scope. Fixed fee. No surprises.</div>
+        <div class="cost-items">
+          <div class="cost-item"><span class="cost-item-icon">✓</span><span><strong style="color:var(--txt);">$9,500 flat fee</strong> per site — everything included, delivered in 14 days</span></div>
+          <div class="cost-item"><span class="cost-item-icon">✓</span><span><strong style="color:var(--txt);">No ongoing licence fees</strong> — what you receive is yours. Staff maintain it with 15 minutes per month</span></div>
+          <div class="cost-item"><span class="cost-item-icon">✓</span><span><strong style="color:var(--txt);">~150 minutes total staff time</strong> — structured across the 14-day build. No operational disruption</span></div>
+          <div class="cost-item"><span class="cost-item-icon">✓</span><span><strong style="color:var(--txt);">Works with what you have</strong> — no new software, no rip-and-replace. Builds on your existing systems</span></div>
+          <div class="cost-item"><span class="cost-item-icon">✓</span><span><strong style="color:var(--txt);">OY Score on delivery</strong> — a measurable readiness number so you know exactly where you stand</span></div>
+        </div>
+        <div class="cost-conclusion">One engagement. Permanent governance infrastructure. No recurring cost.</div>
+      </div>
+    </div>
+    <div class="urgency-strip fade-up">
+      <div class="urgency-dot"></div>
+      <div class="urgency-text"><strong>Currently accepting 3 new facilities per month.</strong> Implementation slots are capped to ensure full delivery quality. If you're considering this, the 10-minute call is the right place to start — it costs nothing and tells you exactly whether this is relevant for your facility.</div>
+    </div>
+  </div>
+</section>
+
 <!-- CHECKLIST CTA -->
 <section id="checklist">
   <div class="container">
@@ -455,6 +650,81 @@ footer{background:var(--s1);border-top:1px solid var(--b1);padding:28px 32px;dis
         <button onclick="submitChecklist()">↓ Send me the checklist</button>
         <div id="checklist-msg"></div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">Common Questions</div>
+      <h2 class="section-title">Questions facilities usually ask.</h2>
+      <p class="section-sub">If you're thinking it, another facility manager has asked it. Here are the most common questions — answered honestly.</p>
+    </div>
+    <div class="faq-list fade-up">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">"We already have Asset Panda / MEX / Zendesk. Why do we need this?"</span>
+          <span class="faq-chevron">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><p>Those systems track your assets and maintenance schedules — but they don't produce the governance layer that auditors look for. The OY System doesn't replace any of those platforms. It sits above them, creating the controls, evidence structure, and documented workflows that make what those systems contain audit-defensible. If you have Asset Panda, MEX, and Zendesk and can already produce a coherent audit pack within minutes — you probably don't need this. Most facilities can't.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">"We're a small facility. Is this designed for us?"</span>
+          <span class="faq-chevron">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><p>The strengthened Aged Care Quality Standards apply to every approved provider — regardless of size. A smaller facility often has fewer staff to absorb governance tasks, which means the gaps tend to be larger, not smaller. The OY System is specifically designed for facilities without an in-house biomedical engineer — it produces governance documents that non-clinical staff can understand and maintain. Size doesn't reduce the obligation; it often increases the need for a system.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">"We had a clean audit last year. Are we already compliant?"</span>
+          <span class="faq-chevron">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><p>A clean audit tells you that the evidence you had at the time of audit was sufficient — it doesn't tell you whether your governance infrastructure would hold up under a focused equipment-specific review, or under the new standards. The strengthened Quality Standards introduced from November 2023 place heavier emphasis on documented governance and continuous evidence. Facilities that passed under the previous framework are often surprised by what a current audit now expects. The 15-minute checklist self-assessment we offer free is a useful starting point to find out where you stand.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">"$9,500 feels significant. How do we justify this internally?"</span>
+          <span class="faq-chevron">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><p>The honest framing is this: a compliance notice and remediation plan typically costs more in staff time alone — 20 to 40 management hours, plus consultant costs if you bring someone in after the fact. The OY System is designed to be implemented proactively, when the cost is fixed and the timeline is predictable. It is also a one-time cost — there are no annual licences, no subscription, no renewal. You receive a governance infrastructure that your team maintains with 15 minutes per month going forward.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">"How much time will this take from our staff?"</span>
+          <span class="faq-chevron">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><p>The full implementation requires approximately 150 minutes of staff time across the 14-day build — primarily a manager interview on Day 1, a walkthrough on Day 8 to review drafts, and a handover session on Day 14. All build work happens on my side. Your team does not write documents, fill in templates, or coordinate deliverables. The 150 minutes is structured and predictable — there are no ad hoc requests, no chasing people for information.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">"What if we decide we don't need it after the discovery call?"</span>
+          <span class="faq-chevron">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><p>That's a legitimate outcome. The discovery call is 10 minutes, free, and genuinely diagnostic — if your facility already has robust equipment governance documentation and a clear evidence trail, I'll tell you that directly and we'll part ways. I'd rather spend 10 minutes helping you confirm you don't have a gap than sell you something you don't need. The call is useful either way.</p></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -518,7 +788,9 @@ footer{background:var(--s1);border-top:1px solid var(--b1);padding:28px 32px;dis
   <div class="footer-txt">© 2026 Meseret N. Teferra · The OY System™ (Operational Yield) · theoysystem.com · Brisbane, SEQ, Australia</div>
   <div class="footer-links">
     <a href="#problem">Problem</a>
+    <a href="#how-it-works">Process</a>
     <a href="#solution">Solution</a>
+    <a href="#faq">FAQ</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
@@ -551,6 +823,13 @@ function showToast(m) {
   var t = document.getElementById('toast');
   t.textContent = m; t.className = 'on';
   setTimeout(() => t.className = '', 3000);
+}
+
+// FAQ accordion
+function toggleFaq(item) {
+  var isOpen = item.classList.contains("open");
+  document.querySelectorAll(".faq-item.open").forEach(el => el.classList.remove("open"));
+  if (!isOpen) item.classList.add("open");
 }
 
 // Smooth active nav
